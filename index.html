@@ -8,24 +8,58 @@
 </head>
 <body>
     <script>
-        console.log("*************** PETSHOP DA RD ******************")
+        console.log("*************** PETSHOP DA RD ******************");
         // nome, idade, raça, peso, cor, dono, vacinado, serviços
-        var cachorro = {
-            nome:"Lolla",
-            idade: 5,
-            raca: "Beagle",
-            peso: 7.5,
-            cor: "caramelo, branco e preto",
-            vacinado: true,
-            servicos: ["banho", "escovar dente", "limpar ouvido"],
-            dono:{
-                nome: "Graziele",
-                idade: 40,
-                endereco: "Rua dos bobo, nº 0"
+    let pets=[
+        {
+        nome:"Lolla",
+        idade: 5,
+        raca: "Beagle",
+        tipo:"Cachorro",
+        peso: 7.5,
+        cor: "caramelo, branco e preto",
+        vacinado: true,
+        servicos: ["banho", "escovar dente", "limpar ouvido"],
+        dono:{
+            nome: "Graziele",
+            idade: 40,
+            endereco: "Rua dos bobo, nº 0",
             }
-        }
+        },
 
-        function vacinar(cachorro){
+        {
+        nome:"Nina",
+        idade: 10,
+        raca: "Vira Lata",
+        tipo:"Gato",
+        peso: 3,
+        cor: "branco e preto",
+        vacinado: false,
+        servicos: ["banho", "escovar dente"],
+        dono:{
+            nome: "Ana Paula",
+            idade: 22,
+            endereco: "Rua dos bobo, nº 0",
+            }
+        },
+
+        {
+        nome:"Mel",
+        idade: 3,
+        raca: "Chitzu",
+        tipo: "Cachorro",
+        peso:3,
+        cor:"Caramelo",
+        servicos:["banho", "tosa"],
+        dono:{
+            nome: "Ana Paula",
+            idade: 22,
+            endereco: "Rua dos bobo, nº 0",            
+        },
+        }
+    ];
+
+      const vacinar = (cachorro)=>{
             //implementar a função(dizer o que a função vai fazer)
             if (cachorro.vacinado){
                 console.log("Esse cachorro já está vacinado!")
@@ -33,8 +67,39 @@
                 cachorro.vacinado = true
                 console.log("Vacina aplicada com sucesso!")
             }
-
         }
+        //pegar as informações e adicinar na lista de pets
+        const adicionarPet = (nome, idade, raca, idade, tipo, peso, cor, servicos, vacinado)=>{
+        let petNovo = {
+            nome:nome,
+            idade: idade,
+            raca:raca,
+            tipo:tipo,
+            peso:peso,
+            cor:cor,
+            dono:{
+                nome:null,
+                idade:null
+            },
+            servicos:servicos,
+            vacinado:vacinado
+        }
+        pets.push(petNovo)
+        console.log("Pet adicionado com sucesso")
+        return petNovo;
+    }
+    
+    const exibirPets = () => {
+        pets.forEach(function(valor, index){
+            console.log("---------------------------------------------------------------------")
+            console.log("Nome do Pet: " + valor.nome);
+            console.log("Tipo do Pet: " + valor.tipo);
+            console.log(valor.vacinado?"Esse pet já está vacinado! =) ":"Esse pet ainda não foi vacinado! =("); 
+        });
+    }
+    
+    
+    
     </script>
 </body>
 </html>
